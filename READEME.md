@@ -7,9 +7,6 @@ leodock
 │   ├── apache2.conf
 │   └── sites
 │       └── sample.conf.example
-├── mysql
-│   ├── Dockerfile
-│   └── my.cnf
 └── php
     ├── Dockerfile
     ├── php.ini
@@ -21,10 +18,17 @@ leodock
 ```
 cp .env.example .env
 
-cp apache2/ports.conf.example apache2/ports.conf
 ```
 
 # 啟動
 ```
 docker-compose up -d 
 ```
+
+# 備註
+
+可搭配 leodock 一起使用
+
+此 docker 不包含 mysql
+
+mysql 需要連線到 leodock
