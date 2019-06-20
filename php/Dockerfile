@@ -52,6 +52,21 @@ RUN apt-get install -y net-tools
 
 RUN apt-get install -y ntp
 
+RUN apt-get install -y supervisor
+
+#
+#--------------------------------------------------------------------------
+# Optional Supervisord Configuration
+#--------------------------------------------------------------------------
+#
+# Modify the ./supervisor.conf file to match your App's requirements.
+# Make sure you rebuild your container with every change.
+#
+
+COPY supervisord.conf /etc/supervisor/supervisord.conf
+
+ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c",  "/etc/supervisor/supervisord.conf"]
+
 # 網路校正時間指令
 # sudo ntpdate watch.stdtime.gov.tw
 
