@@ -12,7 +12,7 @@ services:
       - ${PHP_INI}:/usr/local/etc/php/php.ini
       - ${DATA_LOG_PATH}/apache2:/var/log/apache2
       - ${APACHE_SITES_PATH}:/etc/apache2/sites-available
-      # - ${APACHE_CONF}/apache2.conf:/etc/apache2/apache2.conf
+      - ${APACHE_CONF}/apache2.conf:/etc/apache2/apache2.conf
       - ./crontabs:/var/spool/cron/crontabs
       - ./php/supervisor:/etc/supervisor/conf.d
     ports:
