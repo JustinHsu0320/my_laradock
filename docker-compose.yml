@@ -6,6 +6,7 @@ services:
       context: ./php
       args:
         - PHP_VERSION=${PHP_VERSION}
+    restart: always
     container_name: ${PHP_CONTAINER_NAME}
     volumes:
       - ${APP_CODE_PATH_HOST}:/var/www/html
