@@ -8,10 +8,10 @@ RUN apt-get upgrade -y
 RUN apt-get install -y cron vim
 
 # Install useful tools
-RUN apt-get -y install apt-utils nano wget dialog
+RUN apt-get install -y apt-utils nano wget dialog
 
 # Install important libraries
-RUN apt-get -y install --fix-missing apt-utils build-essential git curl libcurl4 libcurl3-dev zip openssl
+RUN apt-get install -y --fix-missing apt-utils build-essential git curl libcurl4 libcurl3-dev zip openssl
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
