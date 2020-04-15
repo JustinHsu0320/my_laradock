@@ -25,4 +25,8 @@ services:
 
 networks:
   leodock_backend:
-    external: true
+    driver: bridge
+    ipam:
+      config:
+        - subnet: ${SEGMENT}
+          gateway: ${GATWAY}
