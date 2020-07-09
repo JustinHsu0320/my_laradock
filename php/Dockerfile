@@ -11,13 +11,13 @@ RUN apt-get install -y cron vim
 RUN apt-get install -y apt-utils nano wget dialog
 
 # Install important libraries
-RUN apt-get install -y --fix-missing apt-utils build-essential git curl libcurl4 libcurl3-dev zip openssl
+RUN apt-get install -y --fix-missing apt-utils build-essential git curl libcurl4 libcurl3-dev zip libzip-dev libonig-dev openssl
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install xdebug
-RUN pecl install xdebug-2.6.0
+# Install xdebug for PHP 7.4
+RUN pecl install xdebug-2.8.1
 RUN docker-php-ext-enable xdebug
 
 # Install redis
@@ -43,8 +43,8 @@ RUN docker-php-ext-install -j$(nproc) intl
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install gettext
 
-RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+RUN apt-get install -y libwebp-dev libjpeg62-turbo-dev libpng-dev libxpm-dev libfreetype6-dev
+RUN docker-php-ext-configure gd
 RUN docker-php-ext-install -j$(nproc) gd
 
 RUN apt-get install -y net-tools
