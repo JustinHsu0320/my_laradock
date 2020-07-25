@@ -1,6 +1,6 @@
 # 資料結構
 ```
-leodock
+my_laradock
 ├── docker-compose.yml
 ├── logs
 ├── apache2
@@ -24,11 +24,3 @@ cp .env.example .env
 ```
 docker-compose up -d 
 ```
-
-# 備註
-
-可搭配 leodock 一起使用
-
-此 docker 不包含 mysql
-
-mysql 需要連線到 leodock
