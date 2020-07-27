@@ -47,6 +47,12 @@ RUN apt-get install -y libwebp-dev libjpeg62-turbo-dev libpng-dev libxpm-dev lib
 RUN docker-php-ext-configure gd
 RUN docker-php-ext-install -j$(nproc) gd
 
+#Install BCMath package:
+ARG INSTALL_BCMATH=true
+RUN if [ ${INSTALL_BCMATH} = true ]; then \
+    docker-php-ext-install bcmath \
+;fi
+
 RUN apt-get install -y net-tools
 
 RUN apt-get install -y ntp
